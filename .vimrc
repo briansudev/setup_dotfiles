@@ -1,42 +1,40 @@
-set tabstop=4
+syntax enable
 set nocompatible
-set smartindent
-set showmatch
-set title
+
+filetype plugin indent on
+set smartindent autoindent
+set tabstop=4
+set softtabstop=4
 set shiftwidth=4
 set expandtab
-set nocindent
-set softtabstop=4
-filetype plugin indent on
-set autoindent
-set ignorecase
-set clipboard=unnamed
-set smartcase
-set showcmd
 set scrolloff=5
-set mouse=a
-set number
-set hidden
-set noesckeys
-set backspace=indent,eol,start
-set ruler
-set hlsearch
-set wildmenu
-set incsearch
-set copyindent
-set laststatus=2
-syntax enable
-set background=dark
+set copyindent " use existing indents for new indents
+
+set number "Line numbers
+set ruler "Show line numbers on the bar
+set hidden " allows changing buffer with unsaved changes
+set showcmd " Show (partial) command in status line.
+set showmatch " Show matching brackets
+set title "Set window name to file name
+
+" Searching
+set hlsearch " highlight the searchterms
+set incsearch " jump to matches while typing
+set ignorecase " ignore case while searching if all lowercase
+set smartcase
+
 set autoread
 set autowrite
+set noerrorbells
 
-"Information
-"set showcmd           " Show (partial) command in status line.
-"set showmode          " Show the current mode
-"set laststatus=2      " always show status line
-"set statusline=%.40F%=%m\ %Y\ Line:\ %3l/%L[%3p%%]
-
-
+set showmode
+set laststatus=2
+set background=dark
+set wildmenu "enhanced command-line completion
+set backspace=indent,eol,start "allow backpacing over autoindent, eol, start
+set mouse=a
+set clipboard=unnamed
+set noesckeys
 
 colorscheme solarized
 let g:airline_theme='dark'
@@ -46,6 +44,11 @@ let g:tagbar_left = 1
 let g:EasyMotion_leader_key = '<Leader>'
 let g:BASH_Ctrl_j = 'off'
 let g:ctrlp_reuse_window = 'nofile'
+
+nnoremap <C-k>      <C-W>k
+nnoremap <C-j>      <C-W>j
+nnoremap <C-h>      <C-W>h
+nnoremap <C-l>      <C-W>l
 
 set listchars=tab:>-,trail:·,eol:$
 nmap <silent> <leader>s :set nolist!<CR>
@@ -64,10 +67,7 @@ imap JJ <Esc>
 noremap <C-s> :update <CR>
 noremap <C-q> :q! <CR>
 nore <leader>d :NERDTreeTabsToggle <Enter>
-map <C-h> <C-W>h
-map <C-l> <C-W>l
-map <C-k> <C-W>k
-map <C-j> <C-W>j
+
 nmap <C-Tab> :tabnext<CR>
 nmap <C-S-Tab> :tabprevious<CR>
 map <C-Tab> :tabnext<CR>
@@ -87,7 +87,6 @@ vnoremap ∆ :m '>+1<CR>gv=gv
 vnoremap ˚ :m '<-2<CR>gv=gv
 
 
-
 execute pathogen#infect()
 call pathogen#helptags()
 set pastetoggle=<F2>
@@ -100,7 +99,5 @@ set omnifunc=syntaxcomplete#Complete
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
-
-
 
 
